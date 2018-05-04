@@ -30,11 +30,11 @@ public class PaDataApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PaDataApplication.class, args);
-        String url = "http://kan.2345.com/vip/list/--movie-----.html";
-        PaDataApplication p = new PaDataApplication();
-        String message = p.getPageContent(url, "post", 100500);
-        System.out.println(message);
-        p.getMessageData(message);
+//        String url = "http://kan.2345.com/vip/list/--movie-----.html";
+//        PaDataApplication p = new PaDataApplication();
+//        String message = p.getPageContent(url, "post", 100500);
+//        System.out.println(message);
+//        p.getMessageData(message);
     }
 
     private void getMessageData(String message) {

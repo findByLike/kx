@@ -1,0 +1,30 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.BasicMapper">
+
+	<resultMap id="BaseResultMap" type="com.example.demo.domain.Basic">
+		<id column="date" jdbcType="VARCHAR" property="date" />
+		<result column="open" jdbcType="VARCHAR" property="open" />
+		<result column="close" jdbcType="VARCHAR" property="close" />
+		<result column="high" jdbcType="VARCHAR" property="high" />
+		<result column="low" jdbcType="VARCHAR" property="low" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		date,open,close,high,low
+	</sql>
+
+	<select id="findByDate" 
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from sz000001
+		where 1=1
+		<if test="date1 != null and date1!=''">
+		and date <![CDATA[ >= ]]> #{date1}
+		</if>
+		<if test="date2 != null and date2!=''">
+		and date <![CDATA[ <= ]]> #{date2}
+		</if>
+		order by date asc
+	</select>
+</mapper>
