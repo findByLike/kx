@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.assertj.core.util.Lists;
+import org.assertj.core.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +49,11 @@ public class BasicController {
 			closeLists.add(basic.getClose());
 			highLists.add(basic.getHigh());
 			lowLists.add(basic.getLow());
+			if(Strings.isNullOrEmpty(bsc.getMin())
+					||Double.parseDouble(basic.getLow())<Double.parseDouble(bsc.getMin())){
+				bsc.setMin(basic.getLow());
+			}
+			
 		}
 		bsc.setClose(closeLists);
 		bsc.setDate(dateLists);

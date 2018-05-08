@@ -8,6 +8,21 @@ public class Basicsplit {
 	 private List<String> open;
 	 private List<String> high;
 	 private List<String> low;
+	 private String min;
+	 private String max;
+	 
+	public String getMin() {
+		return min;
+	}
+	public void setMin(String min) {
+		this.min = min;
+	}
+	public String getMax() {
+		return max;
+	}
+	public void setMax(String max) {
+		this.max = max;
+	}
 	public List<String> getDate() {
 		return date;
 	}
